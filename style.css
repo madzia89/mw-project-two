@@ -4,43 +4,81 @@ body {
 }
 
 #navbar {
-    background-color: #153243;
+    width: 0;
+    height: calc(100% - 100px);
     position: fixed;
+    z-index: 1;
+    bottom: 0;
     left: 0;
-    height: 100%;
-    width: 100px;
-    box-shadow: 0 2px 2px -2px rgba(0, 0, 0, .8);
-    transition: top 0.3s;
+    background-color: rgba(0, 0, 0, 0);
+    overflow-x: hidden;
+    transition: 0.5s;
 }
 
-.navbar__logo {
+#navbar a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+#navbar a:hover {
+    color: #f1f1f1;
+}
+
+@media screen and (max-height: 450px) {
+    #navbar {
+        padding-top: 15px;
+    }
+
+    #navbar a {
+        font-size: 18px;
+    }
+}
+
+#container__main-logo {
+    width: 100px;
+    cursor: pointer;
     font-family: georgia;
-    font-size: 49px;
-    color: #EEF0EB;
     text-align: center;
-    margin: auto;
-    box-shadow: 0 2px 2px -2px rgba(0, 0, 0, .5);
+    font-size: 49px;
+    margin: 2px;
+    color: #EEF0EB;
+    line-height: 100px;
+    height: 100%;
+    position: absolute;
+    animation-name: pulsate;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+    animation-iteration-count: infinite;
 }
 
-.navbar__logo__underline {
-    width: 100px;
-    position: fixed;
-    height: 2px;
-    background-color: #EEF0EB;
-    box-shadow: 0 2px 2px -2px rgba(0, 0, 0, .5);
-    text-align: justify;
-    color: white;
-    font-size: 5px;
+@-webkit-keyframes pulsate {
+    0% {
+        font-size: 48px;
+    }
+    50% {
+        font-size: 49px;
+    }
+    100% {
+        font-size: 48px;
+    }
 }
 
 .navbar__icon {
     fill: #2E5975;
     margin: 20%;
+    padding: 20px 0 0 0;
 }
 
 .navbar__icons {
-    box-shadow: 0 2px 2px -2px rgba(0, 0, 0, .3);
     cursor: pointer;
+}
+
+.navbar__container-for-icons {
+    margin-top: 30vh;
 }
 
 .navbar__icons:hover .navbar__icon {
@@ -51,45 +89,47 @@ body {
 }
 
 .container {
-    padding: 50px 5%;
-    width: 90%;
-    text-align: justify;
-}
-
-.hero__div_h1 {
     width: 100%;
-    height: 100%;
-    background: #FF7777;
-    -webkit-font-smoothing: antialiased;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    height: 100vh;
+    text-align: justify;
+    background: #153243;
 }
 
-.hero__div__h1_letters {
-    height: 100px;
-    font-family: 'Titan One', cursive;
-    font-size: 80px;
-    color: #FFF;
-    top: -20px;
-    text-shadow: 0 1px 0 #CCC,
-    0 2px 0 #CCC,
-    0 3px 0 #CCC,
-    0 4px 0 #CCC,
-    0 5px 0 #CCC,
-    0 6px 0 transparent,
-    0 7px 0 transparent,
-    0 8px 0 transparent,
-    0 9px 0 transparent,
-    0 10px 10px rgba(0, 0, 0, .4);
-}
+/*.hero__div_h1 {*/
+    /*width: 50%;*/
+    /*height: 20%;*/
+    /*-webkit-font-smoothing: antialiased;*/
+    /*display: flex;*/
+    /*justify-content: right;*/
+    /*align-items: center;*/
+/*}*/
 
-.hero__div__h1_letters span:hover {
-    position: relative;
-    top: -20px;
-    display: inline-block;
-    animation: bounce .30s ease infinite alternate;
-}
+/*.hero__div__h1_letters {*/
+    /*margin: 200px;*/
+    /*height: 100px;*/
+    /*font-family: 'Titan One', cursive;*/
+    /*font-size: 80px;*/
+    /*color: #FFF;*/
+    /*top: -20px;*/
+    /*cursor: default;*/
+    /*text-shadow: 0 1px 0 #CCC,*/
+    /*0 2px 0 #CCC,*/
+    /*0 3px 0 #CCC,*/
+    /*0 4px 0 #CCC,*/
+    /*0 5px 0 #CCC,*/
+    /*0 6px 0 transparent,*/
+    /*0 7px 0 transparent,*/
+    /*0 8px 0 transparent,*/
+    /*0 9px 0 transparent,*/
+    /*0 10px 10px rgba(0, 0, 0, .4);*/
+/*}*/
+
+/*.hero__div__h1_letters span:hover, {*/
+    /*position: relative;*/
+    /*top: -20px;*/
+    /*display: inline-block;*/
+    /*animation: bounce .30s ease infinite alternate;*/
+/*}*/
 
 @keyframes bounce {
     100% {
@@ -105,4 +145,27 @@ body {
         0 9px 0 #CCC,
         0 50px 25px rgba(0, 0, 0, .2);
     }
+}
+
+#messenger {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: monospace;
+    font-size: 30px;
+    white-space: nowrap;
+    text-shadow: 0 2px 2px rgba(#000, 0.9);
+    color: white;
+}
+
+.container__contact-envelope__icon {
+    fill: #2E5975;
+    padding: 20px 0 0 0;
+}
+
+.container__contact-envelope {
+    position: absolute;
+    bottom: 20px;
+    right: 25px;
 }
