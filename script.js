@@ -5,7 +5,7 @@ const containerForLogoMW = document.getElementById('container__main-logo')
 containerForContent.addEventListener('mouseover', () => closeNav())
 containerForLogoMW.addEventListener('mouseover', () => openNav())
 
-function openNav() {
+const openNav = () => {
     if ((event.target === containerForLogoMW) &&
         (containerForNavbar.style.width == 0 ||
             containerForNavbar.style.width === '0px')) {
@@ -16,7 +16,7 @@ function openNav() {
     }
 }
 
-function closeNav() {
+const closeNav = () => {
     if ((event.target === containerForContent) &&
         (containerForNavbar.style.width === "100px")) {
         return (
@@ -114,3 +114,24 @@ const Messenger = function (el) {
 
 console.clear();
 let messenger = new Messenger($('#messenger'));
+
+const contact = document.getElementById('contact__envelope')
+const contactDiv = document.getElementById('container__contact-div')
+
+window.addEventListener('click', () => openContact())
+window.addEventListener('click', () => closeContact())
+
+const openContact = () => {
+    if (event.target === contact) {
+        contactDiv.style.height = '100px'
+        contact.style.visibility = 'hidden'
+    }
+}
+
+const closeContact = () => {
+    if (event.target !== contact) {
+        contactDiv.style.height = '0px'
+        contact.style.visibility = 'visible'
+    }
+
+}
